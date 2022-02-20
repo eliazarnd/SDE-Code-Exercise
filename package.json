@@ -1,0 +1,23 @@
+{
+  "name": "sde-exercise-code",
+  "version": "1.0.0",
+  "description": "This a code-exercise for Platform Science",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliazarnd/SDE-Code-Exercise.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Eliazar Lopez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliazarnd/SDE-Code-Exercise/issues"
+  },
+  "homepage": "https://github.com/eliazarnd/SDE-Code-Exercise#readme"
+}
