@@ -12,6 +12,12 @@ function showOutPutAssigneds(shipmentAssigneds){
 
 }
 
+function showTotalSS(totalSS = 0){
+    return `The total SS is ${totalSS}`
+}
+
+
 module.exports = {
-    showOutPutAssigneds
+    showOutPutAssigneds,
+    showTotalSS
 }
