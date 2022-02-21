@@ -3,7 +3,8 @@ const assert = chai.assert;
 const should = chai.should();
 const excpect = chai.expect();
 
-const { isVowel, 
+const { isVowel,
+        isConsonant, 
         countVowels, 
         countConsonants } = require('../utils/utils');
 const { calculateSuitabilityScore } = require('../utils/ssCalculate')
@@ -38,6 +39,29 @@ describe('Helpers Tests', function () {
         result.should.be.equal(3);
     });
 
+    
+  });
+
+  describe('#isConsonant', function(){
+
+    it('should return if character is a consonant', function () {
+        //Arrange
+        const input = "f";
+        //Act
+        const result = isConsonant(input);
+        //Assert
+        result.should.be.equal(true);
+    });
+
+    it('should return if character is not a consonant', function () {
+        //Arrange
+        const input = "a";
+        //Act
+        const result = isConsonant(input);
+        //Asssert
+        result.should.be.equal(false);
+    });
+
     it('should return number of consonants that contains a word', function () {
         //Arrange
         const input = "testing word";
@@ -46,7 +70,9 @@ describe('Helpers Tests', function () {
         //Assert
         result.should.be.equal(8);
     });
-  });
+
+  })
+
 });
 
 describe('Suitability score test', function(){
