@@ -17,6 +17,13 @@ function createAnobjectDriverList(streetName, drivers){
     return ssDriversList;
 }
 
+function assignSSForDriver(streetName, drivers){
+  
+    const ssDriverList = createAnobjectDriverList(streetName, drivers);
+    return ssDriverList
+    
+  }
+
 
 
 module.exports = {
