@@ -1,6 +1,17 @@
 const VOWELS = ["a", "e", "i", "o", "u"];
+
+const CONSONANTS = ["b", "c", "d", "f","g",
+                    "h","j", "k", "l", "m",
+                    "n", "p", "q", "r", 
+                    "s", "t", "v", "w", 
+                    "x", "y", "z"]
+                    
 function isVowel(character){
     return VOWELS.includes(character.toLowerCase());
+}
+
+function isConsonant(character){
+    return CONSONANTS.includes(character.toLowerCase());
 }
 
 function countVowels(word){
@@ -22,7 +33,7 @@ function countConsonants(word){
 
     let numberOfConsonants = 0;
     wordsList.forEach(word => {
-        if(!isVowel(word)){
+        if(isConsonant(word)){
             numberOfConsonants++;
         }
     })
@@ -33,6 +44,7 @@ function countConsonants(word){
 
 module.exports = {
     isVowel,
+    isConsonant,
     countVowels,
     countConsonants
 }
