@@ -7,7 +7,10 @@ const { isVowel,
         isConsonant, 
         countVowels, 
         countConsonants } = require('../utils/utils');
+
 const { calculateSuitabilityScore } = require('../utils/ssCalculate')
+
+const { createobjectDriverList } = require('../utils/makerObjectSS');
 
 describe('Helpers Tests', function () {
   describe('#isVowel', function () {
@@ -94,4 +97,25 @@ describe('Suitability score test', function(){
 
     })
 
+    
+    describe('Assign SS (Suitability Score) to driver', function(){
+
+        it('should return an object with sutability score base on streetName and driver name', function(){
+
+            //Arrange
+            const drivers = ["Blake	White", "Steven	Robertson"]
+
+            const [ streetName, driversList ] = ["Street test", drivers];
+
+            //Act
+            const results = createobjectDriverList(streetName, driversList);
+            
+            //Assert
+            results.forEach(result => {
+                result.should.to.have.all.keys("name", "SS");
+            })
+        
+        })
+
+    })
 })
