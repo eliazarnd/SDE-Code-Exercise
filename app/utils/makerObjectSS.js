@@ -37,7 +37,28 @@ function getMAximumSS(shipment){
 }
 
 
+function assignShipmentDestinationToDriver(shipmentsDestination, drivers){
+    const allShipmentsAssigned = [];
+    const driversToAssign = [...drivers]
+    for(const shipmentDestination of shipmentsDestination){
+    //console.log(drivers)
+        const shipment = assignSSForDriver(shipmentDestination, driversToAssign)
+    
+        const maximunIndex = getMAximumSS(shipment)
+    
+        const findName = driversToAssign.findIndex(driver => driver === maximunIndex.name);
+    
+        shipment[findName].shipmentDestination = shipmentDestination
+        
+        allShipmentsAssigned.push(shipment[findName])
+        
+        driversToAssign.splice(findName, 1)
+}
+
+return allShipmentsAssigned;
+}
+
 
 module.exports = {
-    createAobjectDriverList
+    assignShipmentDestinationToDriver
 }
