@@ -27,6 +27,15 @@ function calculateSuitabilityScore(streetName, driverName){
     return ssCalculate; 
 }
 
+function getTotalSS(shipmentAssigneds){
+
+    const SSValues = shipmentAssigneds.map(shipmentAssigned => shipmentAssigned.SS)
+    
+    return SSValues.reduce((val, acc) => val += acc );
+    
+  }
+
 module.exports = {
-    calculateSuitabilityScore
+    calculateSuitabilityScore,
+    getTotalSS
 }
