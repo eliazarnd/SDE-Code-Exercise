@@ -6,6 +6,7 @@ const excpect = chai.expect();
 const { isVowel, 
         countVowels, 
         countConsonants } = require('../utils/utils');
+const { calculateSuitabilityScore } = require('../utils/ssCalculate')
 
 describe('Helpers Tests', function () {
   describe('#isVowel', function () {
@@ -47,3 +48,24 @@ describe('Helpers Tests', function () {
     });
   });
 });
+
+describe('Suitability score test', function(){
+
+    describe('Calculate suitability score', function(){
+
+        it('should return the sutability score of street name and driver name', function(){
+
+            //Arrange
+            const [ streetName, dirverName ] = ["Street test", "Anybody"];
+
+            //Act
+            const result = calculateSuitabilityScore(streetName, dirverName);
+            const expectResult = 7.5;
+            //Assert
+            result.should.be.equal(expectResult);
+
+        })
+
+    })
+
+})
