@@ -16,7 +16,23 @@ function countVowels(word){
     return numberOfVowels;
 }
 
+function countConsonants(word){
+
+    const wordsList = word.replace(" ", "").toLowerCase().split("");
+
+    let numberOfConsonants = 0;
+    wordsList.forEach(word => {
+        if(!isVowel(word)){
+            numberOfConsonants++;
+        }
+    })
+
+    return numberOfConsonants;
+
+}
+
 module.exports = {
     isVowel,
-    countVowels
+    countVowels,
+    countConsonants
 }
