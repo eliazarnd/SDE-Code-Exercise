@@ -1,16 +1,16 @@
 const { calculateSuitabilityScore } = require('./ssCalculate')
 
-function createAnobjectDriverList(streetName, drivers){
+function createobjectDriverList(streetName, drivers){
 
     const ssDriversList = []
     drivers.forEach(driver => {
         let ssForDriver = calculateSuitabilityScore(streetName, driver);
-
-        ssDriversList.push(
-            {
+        let driverWithSS = {
             name: driver,
             SS: ssForDriver,
-        }  )
+        }
+
+        ssDriversList.push(driverWithSS)
         
     })
 
@@ -19,7 +19,7 @@ function createAnobjectDriverList(streetName, drivers){
 
 function assignSSForDriver(streetName, drivers){
 
-    const ssDriverList = createAnobjectDriverList(streetName, drivers);
+    const ssDriverList = createobjectDriverList(streetName, drivers);
     return ssDriverList
     
 }
@@ -60,5 +60,6 @@ return allShipmentsAssigned;
 
 
 module.exports = {
-    assignShipmentDestinationToDriver
+    assignShipmentDestinationToDriver,
+    createobjectDriverList
 }
