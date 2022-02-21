@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app/index.js",
-    "test": "mocha ./app/test"
+    "test": "mocha ./app/test",
+    "watch": "mocha ./app/test --watch"
   },
   "repository": {
     "type": "git",
