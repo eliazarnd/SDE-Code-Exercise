@@ -18,11 +18,23 @@ function createAnobjectDriverList(streetName, drivers){
 }
 
 function assignSSForDriver(streetName, drivers){
-  
+
     const ssDriverList = createAnobjectDriverList(streetName, drivers);
     return ssDriverList
     
-  }
+}
+
+function getMAximumSS(shipment){
+
+    let maximumSS = 0;
+    for(const ship of shipment){
+        if(ship.SS > maximumSS)
+            maximumSS = ship.SS;
+    }
+
+    let maxSSDriverIndex = shipment.findIndex(ssDriver => ssDriver.SS === maximumSS)
+    return shipment[maxSSDriverIndex];
+}
 
 
 
