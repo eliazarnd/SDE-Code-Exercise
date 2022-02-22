@@ -47,16 +47,22 @@ function getShipmentsDestinations(){
     }
 }
 
+
 const driversArray = getDrivers();
 const shipmentsDestinationArray = getShipmentsDestinations();
 
-const shipmentAssigneds = assignShipmentDestinationToDriver(shipmentsDestinationArray, driversArray)
-const totalSS = getTotalSS(shipmentAssigneds);
-
-
 function initApp(){
+
+    const shipmentAssigneds = assignShipmentDestinationToDriver(shipmentsDestinationArray, driversArray)
+    const totalSS = getTotalSS(shipmentAssigneds);
+
     console.log(showTotalSS(totalSS))
     console.log(showOutPutAssigneds(shipmentAssigneds))
 }
 
-initApp();
+if(driversArray.length === shipmentsDestinationArray.length){
+    initApp();
+}else{
+    throw new Error("Drivers and Shipments destination length must be equal")
+}
+
