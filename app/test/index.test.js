@@ -10,7 +10,7 @@ const { isVowel,
 
 const { calculateSuitabilityScore } = require('../utils/ssCalculate')
 
-const { createobjectDriverList } = require('../utils/makerObjectSS');
+const { createobjectDriverList, getMAximumSS } = require('../utils/makerObjectSS');
 
 describe('Helpers Tests', function () {
   describe('#isVowel', function () {
@@ -114,6 +114,22 @@ describe('Suitability score test', function(){
             results.forEach(result => {
                 result.should.to.have.all.keys("name", "SS");
             })
+        
+        })
+
+    })
+
+    describe('get the maximun SS (Suitability Score) to shipment Object', function(){
+
+        it('should return the object that contains maximun sutability score from shipment Object', function(){
+
+            //Arrange
+            const shipments = [{name: "Blake White",SS: 4.5},
+                             {name: "Steven	Robertson",SS: 2.5}]
+            //Act
+            const result = getMAximumSS(shipments);
+            //Assert
+            result.should.to.deep.equal({ name: "Blake White", SS: 4.5 })
         
         })
 
