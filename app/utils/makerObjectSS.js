@@ -24,16 +24,16 @@ function assignSSForDriver(streetName, drivers){
     
 }
 
-function getMAximumSS(shipment){
+function getMAximumSS(shipments){
 
     let maximumSS = 0;
-    for(const ship of shipment){
-        if(ship.SS > maximumSS)
-            maximumSS = ship.SS;
+    for(const shipment of shipments){
+        if(shipment.SS > maximumSS)
+            maximumSS = shipment.SS;
     }
 
-    let maxSSDriverIndex = shipment.findIndex(ssDriver => ssDriver.SS === maximumSS)
-    return shipment[maxSSDriverIndex];
+    let maxSSDriverIndex = shipments.findIndex(ssDriver => ssDriver.SS === maximumSS)
+    return shipments[maxSSDriverIndex];
 }
 
 
@@ -41,16 +41,16 @@ function assignShipmentDestinationToDriver(shipmentsDestination, drivers){
     const allShipmentsAssigned = [];
     const driversToAssign = [...drivers]
     for(const shipmentDestination of shipmentsDestination){
-    //console.log(drivers)
-        const shipment = assignSSForDriver(shipmentDestination, driversToAssign)
+
+        const shipments = assignSSForDriver(shipmentDestination, driversToAssign)
     
-        const maximunIndex = getMAximumSS(shipment)
+        const maximumIndex = getMAximumSS(shipments)
     
-        const findName = driversToAssign.findIndex(driver => driver === maximunIndex.name);
+        const findName = driversToAssign.findIndex(driver => driver === maximumIndex.name);
     
-        shipment[findName].shipmentDestination = shipmentDestination
+        shipments[findName].shipmentDestination = shipmentDestination
         
-        allShipmentsAssigned.push(shipment[findName])
+        allShipmentsAssigned.push(shipments[findName])
         
         driversToAssign.splice(findName, 1)
 }
@@ -61,5 +61,6 @@ return allShipmentsAssigned;
 
 module.exports = {
     assignShipmentDestinationToDriver,
-    createobjectDriverList
+    createobjectDriverList,
+    getMAximumSS
 }
